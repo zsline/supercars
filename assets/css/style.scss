@@ -37,7 +37,7 @@ h1{
     transform: translate(-50%, -50%);
     cursor: pointer;
 }
-.btn-close{
+.btn-close, .btn-open{
     display: none;
 }
 // =====================================
@@ -247,7 +247,7 @@ input[type="submit"]{
 }
 input[type="date"]::-webkit-calendar-picker-indicator,
 input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-outer-spin-button {
+input[type="date"]::-webkit-outer-spin-button { 
   position: absolute;
   opacity: 0;
   width: 20px;
@@ -264,7 +264,7 @@ input[type="date"]::-webkit-input-placeholder {
 input[type="time"]::-webkit-calendar-picker-indicator,
 input[type="time"]::-webkit-inner-spin-button,
 input[type="time"]::-webkit-outer-spin-button {
-    position: absolute;
+  position: absolute;
   opacity: 0;
   width: 20px;
   height: 20px;
@@ -296,6 +296,9 @@ input[type="time"]::-webkit-input-placeholder {
     }
 }
 @media (max-width:924px){
+    .btn-open{
+        display: block;
+    }
     .header{
         overflow: visible;
         nav::after{
