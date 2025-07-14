@@ -1,5 +1,5 @@
 
-
+// ===================== Section Hero ===================
 // Очистка поля ввода
 document.querySelectorAll(".clear-button")
 .forEach(function (elem) {
@@ -34,3 +34,109 @@ closeMenu.addEventListener('click', (e) => {
   e.target.style.display = 'none';
 });
 
+// =========================================================
+// =================  Filter ===============================
+
+const flterItems = document.querySelectorAll('.filter__item');
+flterItems.forEach(el => {
+  console.dir(el);
+  
+  let open = el.children[0];
+  if(open){
+    open.addEventListener('click', (e) => {
+      e.target.parentElement.parentElement.parentElement.classList.toggle('open');
+    }); 
+  }
+})
+
+// ====================================================================================
+// ================= Renge slider ====================
+let slideMin = document.getElementById('budget-min');
+let slideMax = document.getElementById('budget-max');
+let sliderTrack = document.querySelector('.slider-track');
+
+const sliderMinValue = parseInt(slideMin.min); // 400
+const sliderMaxValue = parseInt(slideMin.max); // 1500
+let minGap = 100;
+
+function sliderOne() {
+  if (parseInt(slideMax.value) - parseInt(slideMin.value) <= minGap) {
+    slideMin.value = parseInt(slideMax.value) - minGap;
+  }
+  fillColor();
+  updateDisplay();
+}
+
+function sliderTwo() {
+  if (parseInt(slideMax.value) - parseInt(slideMin.value) <= minGap) {
+    slideMax.value = parseInt(slideMin.value) + minGap;
+  }
+  fillColor();
+  updateDisplay();
+}
+
+function fillColor() {
+  const percent1 = ((slideMin.value - sliderMinValue) / (sliderMaxValue - sliderMinValue)) * 100;
+  const percent2 = ((slideMax.value - sliderMinValue) / (sliderMaxValue - sliderMinValue)) * 100;
+  sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}%, #C49D74 ${percent1}%, #C49D74 ${percent2}%, #dadae5 ${percent2}%)`;
+}
+
+function updateDisplay() {
+  const displayElement = document.querySelector(".rangeValues");
+  const val1 = parseInt(slideMin.value);
+  const val2 = parseInt(slideMax.value);
+
+  if (!displayElement) return;
+
+  if (val2 < 1500) {
+    displayElement.innerHTML = "£ " + val1 + " - £ " + val2;
+  } else {
+    displayElement.innerHTML = "£ " + val1 + " - £ " + val2 + "+";
+  }
+}
+
+window.onload = function () {
+  // начальная инициализация
+  sliderOne();
+  sliderTwo();
+
+  // обработчики на ползунки
+  slideMin.addEventListener('input', sliderOne);
+  slideMax.addEventListener('input', sliderTwo);
+
+  // кнопка сброса
+  const clearBtn = document.querySelector('.filter__clear');
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      slideMin.value = sliderMinValue;
+      slideMax.value = sliderMaxValue;
+      fillColor();
+      updateDisplay();
+    });
+  }
+};
+
+// ============= Открытите марок машин ===============
+
+const brends = document.querySelectorAll('.filter__item--brand');
+brends.forEach(brend => {
+  brend.children[0].children[0].addEventListener('change', function () {
+    if (this.checked) {
+      brend.classList.add('open');
+      Array.from(brend.children).forEach(el =>{
+        el.children[0].checked = true;
+      })
+    } else {
+      brend.classList.remove('open');
+      Array.from(brend.children).forEach(el =>{
+        el.children[0].checked = false;
+      })
+    }
+  });
+});
+
+// checkboxes.forEach(checkbox => {
+//   checkbox.addEventListener('change', function () {
+//     console.log(`Чекбокс ${this.value} теперь ${this.checked ? 'включен' : 'выключен'}`);
+//   });
+// });

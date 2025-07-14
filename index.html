@@ -132,6 +132,169 @@
             </div>
           </div>
         </section>
+        <section class="content">
+          <div class="container">
+            <div class="content__wrapper">
+              <aside class="content__filter filter">
+                <form action="#">
+                  <header class="filter__header filter__item">
+                    <div class="filter__title">Filters</div>
+                    <div class="filter__clear">
+                      <input type="reset" value="Clear all filters" />
+                    </div>
+                  </header>
+                  <div class="filter__budget filter__item open">
+                    <div class="filter__item--title">
+                      <h5>Your budget (per day)</h5>
+                      <span class="filter__item--open"
+                        ><img src="assets/svg/open-item.svg" alt=""
+                      /></span>
+                    </div>
+                    <div class="filter__item--content">
+                      <span class="rangeValues"></span>
+                      <div class="slider-track"></div>
+                      <input
+                        type="range"
+                        id="budget-min"
+                        name="budget-min"
+                        min="400"
+                        max="1500"
+                        value="400"
+                      />
+                      <input
+                        type="range"
+                        id="budget-max"
+                        name="budget-max"
+                        min="400"
+                        max="1500"
+                        value="1500"
+                      />
+                    </div>
+                  </div>
+                  <div class="filter__manufacturer filter__item open">
+                    <div class="filter__item--title">
+                      <h5>Manufacturer</h5>
+                      <span class="filter__item--open"
+                        ><img src="assets/svg/open-item.svg" alt=""
+                      /></span>
+                    </div>
+                    <div class="filter__item--content">
+                      <div class="filter__item--brand">
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="lamborghini"
+                            name="lamborghini"
+                            value="lamborghini"
+                          />
+                          <img src="assets/img/lamborgini.png" alt="" />
+                          Lamborghini
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="huracan_spyder"
+                            name="Huracan Spyder"
+                            value="Huracan Spyder"
+                          />
+                          Huracan Spyder
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="aventador"
+                            name="Aventador"
+                            value="Aventador"
+                          />
+                          Aventador
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="urus"
+                            name="Urus"
+                            value="Urus"
+                          />
+                          Urus
+                        </label>
+                      </div>
+                      <div class="filter__item--brand">
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="lamborghini"
+                            name="lamborghini"
+                            value="lamborghini"
+                          />
+                          <img src="assets/img/Bentley.png" alt="" />
+                          Bentley
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="huracan_spyder"
+                            name="Huracan Spyder"
+                            value="Huracan Spyder"
+                          />
+                          Huracan Spyder
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="aventador"
+                            name="Aventador"
+                            value="Aventador"
+                          />
+                          Aventador
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="urus"
+                            name="Urus"
+                            value="Urus"
+                          />
+                          Urus
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="filter__specs filter__item">
+                    <div class="filter__item--title">
+                      <h5>Car specs</h5>
+                      <span class="filter__item--open"
+                        ><img src="assets/svg/open-item.svg" alt=""
+                      /></span>
+                    </div>
+                    <div class="filter__item--content"></div>
+                  </div>
+                  <div class="filter__locations filter__item">
+                    <div class="filter__item--title">
+                      <h5>Locations</h5>
+                      <span class="filter__item--open"
+                        ><img src="assets/svg/open-item.svg" alt=""
+                      /></span>
+                    </div>
+                    <div class="filter__item--content"></div>
+                  </div>
+                  <div class="filter__supplier filter__item">
+                    <div class="filter__item--title">
+                      <h5>Supplier</h5>
+                      <span class="filter__item--open"
+                        ><img src="assets/svg/open-item.svg" alt=""
+                      /></span>
+                    </div>
+                    <div class="filter__item--content"></div>
+                  </div>
+                </form>
+              </aside>
+              <div class="content__cars cars">
+                <header class="cars__header"></header>
+                <div class="cars__list"></div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <footer class="footer"></footer>
     </div>
