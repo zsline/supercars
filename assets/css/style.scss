@@ -858,6 +858,7 @@ label:has(input[type=checkbox]:focus){
 }
 @media (max-width:500px){
     .content__wrapper .cars__header{
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         h4 {
@@ -879,8 +880,11 @@ label:has(input[type=checkbox]:focus){
     .car-card__img {
         max-width: 100%;
     }
+    .car-card__info {
+        order: 2;
+    }
     .car-card__book {
         width: 100%;
-        order: 2;
+        order: 3;
     }
 }

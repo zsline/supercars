@@ -1546,6 +1546,10 @@ label:has(input[type=checkbox]:focus)::before {
 
 @media (max-width: 500px) {
   .content__wrapper .cars__header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -1574,11 +1578,16 @@ label:has(input[type=checkbox]:focus)::before {
   .car-card__img {
     max-width: 100%;
   }
-  .car-card__book {
-    width: 100%;
+  .car-card__info {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
+  }
+  .car-card__book {
+    width: 100%;
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
   }
 }
 /*# sourceMappingURL=style.css.map */
