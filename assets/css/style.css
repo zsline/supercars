@@ -937,6 +937,14 @@ label:has(input[type=checkbox]:focus)::before {
           flex-grow: 1;
 }
 
+.car-card__info li img {
+  margin-right: 8px;
+}
+
+.car-card__info li:not(:last-child) {
+  margin-bottom: 16px;
+}
+
 .car-card__info--top {
   display: inline-block;
   padding: 4px 12px;
@@ -961,16 +969,15 @@ label:has(input[type=checkbox]:focus)::before {
   margin-bottom: 24px;
 }
 
+.car-card__info--feature {
+  margin-bottom: 24px;
+}
+
 .car-card__info--feature ul li {
   position: relative;
   font-size: 14px;
-  margin-bottom: 16px;
   padding-left: 15px;
   color: var(--dark-grey);
-}
-
-.car-card__info--feature ul li img {
-  margin-right: 8px;
 }
 
 .car-card__info--feature ul li::before {
@@ -984,10 +991,54 @@ label:has(input[type=checkbox]:focus)::before {
   left: 0;
 }
 
+.car-card__info--garanted {
+  padding: 8px 16px;
+  background-color: var(--s-l-grey);
+  margin-bottom: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.car-card__info--garanted p {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.car-card__info--contact {
+  position: relative;
+  padding-left: 15px;
+}
+
+.car-card__info--contact::before {
+  position: absolute;
+  content: '';
+  height: 100%;
+  width: 3px;
+  background-color: var(--primary);
+  border-radius: 4px;
+  top: 0;
+  left: 0;
+}
+
 .car-card__book {
   width: 200px;
   background-color: var(--dark);
   padding: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
 }
 
 .car-card__book--label {
@@ -1047,6 +1098,7 @@ label:has(input[type=checkbox]:focus)::before {
 }
 
 .car-card__book--price {
+  margin-top: auto;
   padding: 0 12px;
 }
 
@@ -1320,8 +1372,11 @@ label:has(input[type=checkbox]:focus)::before {
 
 .content aside {
   display: inline-block;
-  width: 32%;
   max-width: 411px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  width: 47%;
   min-width: 300px;
 }
 
@@ -1335,6 +1390,7 @@ label:has(input[type=checkbox]:focus)::before {
 .content__wrapper .cars {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
+  max-width: 845px;
 }
 
 .content__wrapper .cars__header {
@@ -1346,6 +1402,14 @@ label:has(input[type=checkbox]:focus)::before {
           justify-content: space-between;
   padding: 14px 0 14px 24px;
   margin-bottom: 16px;
+}
+
+.content__wrapper .cars__header--filter {
+  padding: 4px 24px;
+  border: 1px solid var(--bg-menu);
+  border-radius: 20px;
+  cursor: pointer;
+  display: none;
 }
 
 @media (max-width: 1064px) {
@@ -1430,6 +1494,91 @@ label:has(input[type=checkbox]:focus)::before {
     -webkit-transform: translate(-50%, 0);
             transform: translate(-50%, 0);
     opacity: 1;
+  }
+}
+
+@media (max-width: 870px) {
+  .filter {
+    position: absolute;
+    left: -100%;
+  }
+  .content__wrapper .cars__header {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 14px;
+  }
+  .content__wrapper .cars__header--filter {
+    display: inline-block;
+    margin-bottom: 14px;
+  }
+  .car-card__img {
+    max-width: 264px;
+  }
+  .car-card__info {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .car-card__book {
+    width: 200px;
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+}
+
+@media (max-width: 760px) {
+  .car-card__img {
+    max-width: 60%;
+  }
+  .car-card__info {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .car-card__book {
+    width: 40%;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+}
+
+@media (max-width: 500px) {
+  .content__wrapper .cars__header {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .content__wrapper .cars__header h4 {
+    margin-bottom: 12px;
+  }
+  .car-card__img {
+    max-width: 50%;
+  }
+  .car-card__book {
+    width: 50%;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+}
+
+@media (max-width: 440px) {
+  h1 {
+    font-size: 42px;
+  }
+  .car-card__img {
+    max-width: 100%;
+  }
+  .car-card__book {
+    width: 100%;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
   }
 }
 /*# sourceMappingURL=style.css.map */

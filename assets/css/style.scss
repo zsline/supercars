@@ -392,6 +392,14 @@ label:has(input[type=checkbox]:focus){
         background-color: var(--s-l-grey);
     }
     &__info{
+        li {
+            img {
+                margin-right: 8px;
+            }
+            &:not(:last-child) {
+                margin-bottom: 16px;
+            }
+        }
         &--top{
             display: inline-block;
             padding: 4px 12px;
@@ -417,16 +425,14 @@ label:has(input[type=checkbox]:focus){
             margin-bottom: 24px;
         }
         &--feature{
+            margin-bottom: 24px;
             ul {
                 li {
                     position: relative;
                     font-size: 14px;
-                    margin-bottom: 16px;
                     padding-left: 15px;
                     color: var(--dark-grey);
-                    img {
-                        margin-right: 8px;
-                    }
+
                     &::before {
                         position: absolute;
                         content: '';
@@ -440,11 +446,40 @@ label:has(input[type=checkbox]:focus){
                 }
             }
         }
+        &--garanted{
+            padding: 8px 16px;
+            background-color: var(--s-l-grey);
+            margin-bottom: 24px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            p{
+                font-size: 14px;
+                font-weight: 700;
+            }
+        }
+        &--contact{
+            position: relative;
+            padding-left: 15px;
+            &::before{
+                position: absolute;
+                content: '';
+                height: 100%;
+                width: 3px;
+                background-color: var(--primary);
+                border-radius: 4px;
+                top: 0;
+                left: 0;
+            }
+        }
     }
     &__book{
         width: 200px;
         background-color: var(--dark);
         padding: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
         &--label{
             padding: 12px;
             background-color: rgba(255, 255, 255, 0.08);
@@ -486,6 +521,7 @@ label:has(input[type=checkbox]:focus){
             border-bottom-left-radius: 0;
         }
         &--price{
+            margin-top: auto;
             padding: 0 12px;
             span{
                 color: var(--primary);
@@ -689,8 +725,12 @@ label:has(input[type=checkbox]:focus){
     padding-bottom: 64px;
     aside {
         display: inline-block;
-        width: 32%;
+        // width: 32%;
+        // max-width: 411px;
+        // min-width: 300px;
         max-width: 411px;
+        flex-grow: 1;
+        width: 47%;
         min-width: 300px;
     }
     &__wrapper{
@@ -698,11 +738,19 @@ label:has(input[type=checkbox]:focus){
         gap: 24px;
         .cars{
             flex-basis: 100%;
+            max-width: 845px;
             &__header{
                 display: flex;
                 justify-content: space-between;
                 padding: 14px 0 14px 24px;
                 margin-bottom: 16px;
+                &--filter{
+                    padding: 4px 24px;
+                    border: 1px solid var(--bg-menu);
+                    border-radius: 20px;
+                    cursor: pointer;
+                    display: none;
+                }
             }
         }
     }
@@ -770,5 +818,69 @@ label:has(input[type=checkbox]:focus){
                opacity: 1;
             }
         }
+    }
+}
+@media (max-width:870px) {
+    .filter {
+        position: absolute;
+        left: -100%;
+    }
+    .content__wrapper .cars__header{
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+    .content__wrapper .cars__header--filter{
+        display: inline-block;
+        margin-bottom: 14px;
+    }
+    .car-card__img {
+        max-width: 264px;
+    }
+    .car-card__info{
+        order: 2;
+    }
+    .car-card__book {
+        width: 200px;
+        order: 3;
+    }
+}
+@media (max-width:760px){
+    .car-card__img {
+        max-width: 60%;
+    }
+    .car-card__info{
+        order: 3;
+    }
+    .car-card__book {
+        width: 40%;
+        order: 2;
+    }
+}
+@media (max-width:500px){
+    .content__wrapper .cars__header{
+        align-items: center;
+        justify-content: center;
+        h4 {
+            margin-bottom: 12px;
+        }
+    }
+    .car-card__img {
+        max-width: 50%;
+    }
+    .car-card__book {
+        width: 50%;
+        order: 2;
+    }
+}
+@media (max-width:440px){
+    h1 {
+        font-size: 42px;
+    }
+    .car-card__img {
+        max-width: 100%;
+    }
+    .car-card__book {
+        width: 100%;
+        order: 2;
     }
 }
