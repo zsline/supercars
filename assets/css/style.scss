@@ -22,6 +22,11 @@ h1{
     line-height: 64px;
     letter-spacing: -0.02rem;
 }
+h3{
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+}
 h4{
     font-size: 24px;
     font-weight: 700;
@@ -52,6 +57,14 @@ select {
 }
 .btn-close, .btn-open{
     display: none;
+}
+.main-btn {
+    display: block;
+    padding: 8px 16px;
+    background-color: var(--white);
+    border-radius: 12px;
+    text-align: center;
+    margin: 0 auto;
 }
 // === сортировка =====
 .custom-select {
@@ -114,6 +127,9 @@ select {
     background-color: var(--s-l-grey);
     border-radius: 16px;
     overflow: hidden;
+    height: max-content;
+    position: sticky;
+    top: 20px;
     &__item{
         padding: 16px 24px;
         &:not(:last-child){
@@ -248,7 +264,11 @@ input[type=range]::-webkit-slider-thumb {
     pointer-events: auto;
     transform: translateY(-7px);
 }
-
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
 input[type="date"]{
     border-top-right-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
@@ -352,6 +372,134 @@ label:has(input[type=checkbox]:focus){
     &::before{
         box-shadow: 0 0 0px 3px var(--primary);
         border-radius: 5px;
+    }
+}
+// =========================================
+// === Карточка машины =================
+.car-card{
+    display: flex;
+    justify-content: space-between;
+    border-radius: 16px;
+    overflow: hidden;
+    &:not(:last-child){
+        margin-bottom: 24px;
+    }
+    &__img{
+        width: 264px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--s-l-grey);
+    }
+    &__info{
+        &--top{
+            display: inline-block;
+            padding: 4px 12px;
+            margin-bottom: 12px;
+            background-color: var(--dark);
+            color: var(--white);
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 20px;
+        }
+        border-top: 1px solid var(--s-l-grey);
+        padding: 24px;
+        flex-grow: 1;
+        &--title{
+            max-width: 186px;
+            margin-bottom: 8px;
+        }
+        &--batch{
+            font-size: 14px;
+            line-height: 20px;
+            color: var(--grey);
+            margin-bottom: 24px;
+        }
+        &--feature{
+            ul {
+                li {
+                    position: relative;
+                    font-size: 14px;
+                    margin-bottom: 16px;
+                    padding-left: 15px;
+                    color: var(--dark-grey);
+                    img {
+                        margin-right: 8px;
+                    }
+                    &::before {
+                        position: absolute;
+                        content: '';
+                        height: 100%;
+                        width: 3px;
+                        background-color: var(--bg-menu);
+                        border-radius: 4px;
+                        top: 0;
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+    &__book{
+        width: 200px;
+        background-color: var(--dark);
+        padding: 12px;
+        &--label{
+            padding: 12px;
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            border-top-left-radius: 0;
+            margin-bottom: 12px;
+            img{
+                display: block;
+                margin: 12px auto 0;
+            }
+        }
+        &--header{
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        &--title{
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 24px;
+            color: var(--white);
+            & > span {
+                font-size: 13px;
+                color: var(--grey);
+            }
+        }
+        &--rating {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            border-radius: 20px;
+            border-bottom-left-radius: 0;
+        }
+        &--price{
+            padding: 0 12px;
+            span{
+                color: var(--primary);
+                margin-bottom: 8px;
+            }
+        }
+        &--cost{
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--white);
+        }
+        &--btn{
+            margin-top: 24px;
+        }
     }
 }
 // =====================================
@@ -576,6 +724,18 @@ label:has(input[type=checkbox]:focus){
     }
     input[type="submit"]{
         width: 266px;
+    }
+    .car-card {
+        flex-wrap: wrap;
+    }
+    .car-card__img{
+        flex-grow: 1;
+    }
+    .car-card__book {
+        width: 40%;
+    }
+    .car-card__info {
+        order: 3;
     }
 }
 @media (max-width:924px){
