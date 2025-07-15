@@ -39,12 +39,10 @@ closeMenu.addEventListener('click', (e) => {
 
 const flterItems = document.querySelectorAll('.filter__item');
 flterItems.forEach(el => {
-  console.dir(el);
-  
   let open = el.children[0];
   if(open){
     open.addEventListener('click', (e) => {
-      e.target.parentElement.parentElement.parentElement.classList.toggle('open');
+      el.classList.toggle('open');
     }); 
   }
 })
@@ -135,8 +133,21 @@ brends.forEach(brend => {
   });
 });
 
-// checkboxes.forEach(checkbox => {
-//   checkbox.addEventListener('change', function () {
-//     console.log(`Чекбокс ${this.value} теперь ${this.checked ? 'включен' : 'выключен'}`);
-//   });
-// });
+// ================= Сортировка ==========================
+
+function toggleDropdown() {
+  document.getElementById("dropdown").classList.toggle("open");
+}
+
+function selectOption(value) {
+  document.getElementById("selected").textContent = value;
+  document.getElementById("dropdown").classList.remove("open");
+}
+
+// Закрытие при клике вне
+document.addEventListener("click", function (e) {
+  const select = document.querySelector(".custom-select");
+  if (!select.contains(e.target)) {
+    document.getElementById("dropdown").classList.remove("open");
+  }
+});

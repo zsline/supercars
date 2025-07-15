@@ -189,6 +189,7 @@
                           />
                           <img src="assets/img/lamborgini.png" alt="" />
                           Lamborghini
+                          <span>278</span>
                         </label>
                         <label>
                           <input
@@ -198,6 +199,7 @@
                             value="Huracan Spyder"
                           />
                           Huracan Spyder
+                          <span>122</span>
                         </label>
                         <label>
                           <input
@@ -207,6 +209,7 @@
                             value="Aventador"
                           />
                           Aventador
+                          <span>88</span>
                         </label>
                         <label>
                           <input
@@ -216,6 +219,7 @@
                             value="Urus"
                           />
                           Urus
+                          <span>43</span>
                         </label>
                       </div>
                       <div class="filter__item--brand">
@@ -227,34 +231,47 @@
                             value="lamborghini"
                           />
                           <img src="assets/img/Bentley.png" alt="" />
+                          Porche
+                          <span>278</span>
+                        </label>
+                      </div>
+                      <div class="filter__item--brand">
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="porche"
+                            name="porche"
+                            value="Porche"
+                          />
+                          <img src="assets/img/Porche.png" alt="" />
                           Bentley
+                          <span>278</span>
                         </label>
+                      </div>
+                      <div class="filter__item--brand">
                         <label>
                           <input
                             type="checkbox"
-                            id="huracan_spyder"
-                            name="Huracan Spyder"
-                            value="Huracan Spyder"
+                            id="aston-martin"
+                            name="aston-martin"
+                            value="Porche"
                           />
-                          Huracan Spyder
+                          <img src="assets/img/aston-martin.png" alt="" />
+                          Aston Martin
+                          <span>278</span>
                         </label>
+                      </div>
+                      <div class="filter__item--brand">
                         <label>
                           <input
                             type="checkbox"
-                            id="aventador"
-                            name="Aventador"
-                            value="Aventador"
+                            id="ferrari"
+                            name="ferrari"
+                            value="Ferrari"
                           />
-                          Aventador
-                        </label>
-                        <label>
-                          <input
-                            type="checkbox"
-                            id="urus"
-                            name="Urus"
-                            value="Urus"
-                          />
-                          Urus
+                          <img src="assets/img/ferrari.png" alt="" />
+                          Ferrari
+                          <span>278</span>
                         </label>
                       </div>
                     </div>
@@ -266,7 +283,88 @@
                         ><img src="assets/svg/open-item.svg" alt=""
                       /></span>
                     </div>
-                    <div class="filter__item--content"></div>
+                    <div class="filter__item--content">
+                      <label>
+                        <input
+                          type="checkbox"
+                          id="chauffeur"
+                          name="chauffeur"
+                          value="Chauffeur"
+                        />
+                        Chauffeur
+                        <span>278</span>
+                      </label>
+                      <label>
+                        <input
+                          type="checkbox"
+                          id="electric-vehicle"
+                          name="electric-vehicle"
+                          value="Electric vehicle"
+                        />
+                        Electric vehicle
+                        <span>42</span>
+                      </label>
+                      <label>
+                        <input
+                          type="checkbox"
+                          id="auto-transmission"
+                          name="auto-transmission"
+                          value="Auto transmission"
+                        />
+                        Auto transmission
+                        <span>10</span>
+                      </label>
+                      <label>
+                        <input
+                          type="checkbox"
+                          id="semi-auto-transmission"
+                          name="semi-auto-transmission"
+                          value="Semi-Auto transmission"
+                        />
+                        Semi-auto transmission
+                        <span>10</span>
+                      </label>
+                      <label>
+                        <input
+                          type="checkbox"
+                          id="manual-transmission"
+                          name="manual-transmission"
+                          value="Manual transmission"
+                        />
+                        Manual transmission
+                        <span>10</span>
+                      </label>
+                      <label>
+                        <input
+                          type="checkbox"
+                          id="large-trunk"
+                          name="large-trunk"
+                          value="Large trunk"
+                        />
+                        Large trunk
+                        <span>10</span>
+                      </label>
+                      <label>
+                        <input
+                          type="checkbox"
+                          id="two-seats"
+                          name="two-seats"
+                          value="2 seats"
+                        />
+                        2 seats
+                        <span>10</span>
+                      </label>
+                      <label>
+                        <input
+                          type="checkbox"
+                          id="four-seats"
+                          name="four-seats"
+                          value="4 seats"
+                        />
+                        4 seats
+                        <span>10</span>
+                      </label>
+                    </div>
                   </div>
                   <div class="filter__locations filter__item">
                     <div class="filter__item--title">
@@ -275,7 +373,18 @@
                         ><img src="assets/svg/open-item.svg" alt=""
                       /></span>
                     </div>
-                    <div class="filter__item--content"></div>
+                    <div class="filter__item--content">
+                      <label>
+                        <input
+                          type="checkbox"
+                          id="locations"
+                          name="locations"
+                          value="Locations"
+                        />
+                        Locations
+                        <span>42</span>
+                      </label>
+                    </div>
                   </div>
                   <div class="filter__supplier filter__item">
                     <div class="filter__item--title">
@@ -284,12 +393,83 @@
                         ><img src="assets/svg/open-item.svg" alt=""
                       /></span>
                     </div>
-                    <div class="filter__item--content"></div>
+                    <div class="filter__item--content">
+                      <label>
+                        <input
+                          type="checkbox"
+                          id="supplier"
+                          name="Supplier"
+                          value="Supplier"
+                        />
+                        Supplier
+                        <span>42</span>
+                      </label>
+                    </div>
                   </div>
                 </form>
               </aside>
               <div class="content__cars cars">
-                <header class="cars__header"></header>
+                <header class="cars__header">
+                  <div class="cars__header--title">
+                    <h4>434 cars available</h4>
+                  </div>
+                  <div class="cars__header--sort">
+                    <div class="custom-select" onclick="toggleDropdown()">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6.96672 4.47998L4.48669 2L2.00671 4.47998"
+                          stroke="#6A6A6A"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M4.48669 14V2"
+                          stroke="#6A6A6A"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M9.03333 11.52L11.5133 14L13.9933 11.52"
+                          stroke="#6A6A6A"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M11.5134 2V14"
+                          stroke="#6A6A6A"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      <span
+                        >Sort by:
+                        <strong id="selected">Recommended</strong></span
+                      >
+                      <div class="dropdown" id="dropdown">
+                        <div onclick="selectOption('Recommended')">
+                          Recommended
+                        </div>
+                        <div onclick="selectOption('Newest')">Newest</div>
+                        <div onclick="selectOption('Price: Low to High')">
+                          Price: Low to High
+                        </div>
+                        <div onclick="selectOption('Price: High to Low')">
+                          Price: High to Low
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </header>
                 <div class="cars__list"></div>
               </div>
             </div>
