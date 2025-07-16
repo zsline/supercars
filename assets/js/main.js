@@ -36,18 +36,37 @@ closeMenu.addEventListener('click', (e) => {
 
 // =========================================================
 // =================  Filter ===============================
-
+const filter = document.querySelector('.content__filter');
 const flterItems = document.querySelectorAll('.filter__item');
+const openFilter = document.querySelector('.cars__header--filter');
+const filterTitle = document.querySelector('.filter__title');
+
 flterItems.forEach(el => {
   let open = el.children[0];
   if(open){
     open.addEventListener('click', (e) => {
-      el.classList.toggle('open');
+      if(!e.target.classList.contains('filter__title')){
+        el.classList.toggle('open');
+      }
     }); 
   }
 })
 
-// ====================================================================================
+// =================== Мобильный фильтр =========================
+
+if(filter){
+  openFilter.addEventListener('click', (e) => {
+    filter.classList.add('open');
+    filterTitle.innerHTML = 'Close Filter';
+    filterTitle.style.color = '#C49D74';
+    
+    filterTitle.addEventListener('click', () => {
+      filter.classList.remove('open');
+      filterTitle.innerHTML = 'Filters';
+      filterTitle.style.color = 'inherit';
+    })
+  });
+}
 // ================= Renge slider ====================
 let slideMin = document.getElementById('budget-min');
 let slideMax = document.getElementById('budget-max');
@@ -151,3 +170,8 @@ document.addEventListener("click", function (e) {
     document.getElementById("dropdown").classList.remove("open");
   }
 });
+
+
+
+
+
