@@ -284,8 +284,8 @@ input[type="submit"]{
     align-items: center;
     justify-content: center;
     padding: 18px 40px !important;
-    color: var(--dark);
-    background-color: var(--primary);
+    color: var(--dark) !important;
+    background-color: var(--primary) !important;
 }
 input[type="date"]::-webkit-calendar-picker-indicator,
 input[type="date"]::-webkit-inner-spin-button,
@@ -398,14 +398,27 @@ label:has(input[type=checkbox]:focus){
         }
         &--top{
             display: inline-block;
-            padding: 4px 12px;
-            margin-bottom: 12px;
-            background-color: var(--dark);
-            color: var(--white);
-            border-radius: 15px;
-            font-size: 14px;
-            font-weight: 700;
-            line-height: 20px;
+            span{
+                display: block;
+                padding: 4px 12px;
+                margin-bottom: 12px;
+                background-color: var(--dark);
+                color: var(--white);
+                border-radius: 15px;
+                font-size: 14px;
+                font-weight: 700;
+                line-height: 20px;
+                text-align: center;
+                width: 95px;
+            }
+            span.open-info{
+                display: none;
+                position: relative;
+                background-color: var(--bg-menu);
+                color: var(--dark);
+                cursor: pointer;
+                z-index: 999;
+            }
         }
         border-top: 1px solid var(--s-l-grey);
         padding: 24px;
@@ -861,17 +874,46 @@ label:has(input[type=checkbox]:focus){
     input[type="submit"]{
         width: 266px;
     }
-    .car-card {
-        flex-wrap: wrap;
+    .car-card{
+        position: relative;
     }
     .car-card__img{
-        flex-grow: 1;
+        position: relative;
+        width: 100%;
+        align-items: end;
+        & > img {
+            height: 137px;
+        }
     }
     .car-card__book {
         width: 40%;
+        min-width: 186px;
     }
     .car-card__info {
-        order: 3;
+        position: absolute;
+        display: block;
+        &--characteristic {
+            display: none;
+            &.open{
+                display: block;
+                position: absolute;
+                background-color: var(--s-l-grey);
+                padding: 24px;
+                border: 1px solid var(--grey);
+                border-radius: 12px;
+                top: 4px;
+                left: 4px;
+            }
+        }
+        &--top {
+            position: absolute;
+            right: 24px;
+            span{
+                &.open-info{
+                    display: block;
+                }
+            }
+        }
     }
 }
 @media (max-width:924px){
@@ -937,31 +979,12 @@ label:has(input[type=checkbox]:focus){
         display: inline-block;
         margin-bottom: 14px;
     }
-    .car-card__img {
-        max-width: 264px;
-    }
-    .car-card__info{
-        order: 2;
-    }
-    .car-card__book {
-        width: 200px;
-        order: 3;
-    }
     .car-card__info--garanted {
         max-width: 270px;
     }
 }
 @media (max-width:768px){
-    .car-card__img {
-        max-width: 60%;
-    }
-    .car-card__info{
-        order: 3;
-    }
-    .car-card__book {
-        width: 40%;
-        order: 2;
-    }
+
 }
 @media (max-width:500px){
     .content__wrapper .cars__header{
@@ -972,27 +995,24 @@ label:has(input[type=checkbox]:focus){
             margin-bottom: 12px;
         }
     }
-    .car-card__img {
-        max-width: 50%;
+    .car-card {
+        flex-direction: column;
+        &__book{
+            width: 100%;
+        }
+        &__img{
+            padding-top: 140px;
+            padding-bottom: 20px;
+        }
     }
-    .car-card__book {
-        width: 50%;
-        order: 2;
-    }
+
 }
 @media (max-width:440px){
+    body {
+        overflow-x: hidden;
+    }
     h1 {
         font-size: 42px;
-    }
-    .car-card__img {
-        max-width: 100%;
-    }
-    .car-card__info {
-        order: 2;
-    }
-    .car-card__book {
-        width: 100%;
-        order: 3;
     }
     .footer__nav ul{
         columns: 1;
@@ -1001,3 +1021,23 @@ label:has(input[type=checkbox]:focus){
         }
     }
 }
+@media (max-width:394px){
+    .car-card{
+        &__img{
+            padding-top: 172px;
+        }
+        &__info{
+            top: 32px;
+            &--top{
+                display: flex;
+                gap: 12px;
+                left: 24px;
+                right: auto;
+                top: -12px;
+            }
+        }
+    }
+}
+// * {
+//     outline: 1px solid #000;
+// }

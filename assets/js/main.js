@@ -59,11 +59,13 @@ if(filter){
     filter.classList.add('open');
     filterTitle.innerHTML = 'Close Filter';
     filterTitle.style.color = '#C49D74';
+    filterTitle.style.cursor = 'pointer';
     
     filterTitle.addEventListener('click', () => {
       filter.classList.remove('open');
       filterTitle.innerHTML = 'Filters';
       filterTitle.style.color = 'inherit';
+      filterTitle.style.cursor = 'default';
     })
   });
 }
@@ -172,6 +174,25 @@ document.addEventListener("click", function (e) {
 });
 
 
+// ============= картрчки ===============
+
+const carBoxes = document.querySelectorAll('.car-card__img');
+const infoBoxes = document.querySelectorAll('.car-card__info');
+if(carBoxes.length > 0) {
+  carBoxes.forEach(el => {
+    infoBoxes.forEach(box => {
+      box.style.width = el.offsetWidth + 'px';
+    })
+  })
+}
+infoBoxes.forEach(el => {
+  el.addEventListener('click', e => {
+    if(e.target.classList.contains('open-info')){
+      console.dir(el.children[3]);
+      el.children[3].classList.toggle('open');
+    }
+  })
+})
 
 
 
