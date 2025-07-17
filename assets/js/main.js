@@ -186,10 +186,22 @@ if(carBoxes.length > 0) {
   })
 }
 infoBoxes.forEach(el => {
+  let infoBtnTop = el.querySelector('.open-info').offsetTop;
+  let infoBtnBox = el.querySelector('.car-card__info--characteristic');
+  
+  console.log(window.innerWidth);
+
+  if( window.innerWidth >= parseInt(394)){
+    infoBtnBox.style.top = infoBtnTop + 38 + 'px';
+  } else {
+    console.log('Mobile');
+    infoBtnBox.style.top = 0;
+    infoBtnBox.style.left = 12 + 'px';
+    infoBtnBox.style.right = 'auto';
+  }
   el.addEventListener('click', e => {
     if(e.target.classList.contains('open-info')){
-      console.dir(el.children[3]);
-      el.children[3].classList.toggle('open');
+      infoBtnBox.classList.toggle('open');
     }
   })
 })

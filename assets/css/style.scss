@@ -418,7 +418,7 @@ label:has(input[type=checkbox]:focus){
                 background-color: var(--bg-menu);
                 color: var(--dark);
                 cursor: pointer;
-                z-index: 999;
+                z-index: 9;
             }
         }
         border-top: 1px solid var(--s-l-grey);
@@ -902,8 +902,8 @@ label:has(input[type=checkbox]:focus){
                 padding: 24px;
                 border: 1px solid var(--grey);
                 border-radius: 12px;
-                top: 4px;
-                left: 4px;
+                top: 38px;
+                right: 12px;
             }
         }
         &--top {
@@ -967,7 +967,7 @@ label:has(input[type=checkbox]:focus){
             width: 100%;
             height: 100vh;
             pointer-events: auto;
-            overflow-y: scroll;
+            overflow-y: auto;
             z-index: 99;
             opacity: 1;
         }
@@ -1029,6 +1029,8 @@ label:has(input[type=checkbox]:focus){
         }
         &__info{
             top: 32px;
+            left: 12px;
+            right: auto;
             &--top{
                 display: flex;
                 gap: 12px;
