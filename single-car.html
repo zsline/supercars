@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Supercars</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__wrapper">
+            <div class="header__logo">
+              <a href="index.html">
+                <picture>
+                  <source
+                    media="(max-width: 470px)"
+                    srcset="assets/svg/min-logo.svg"
+                  />
+                  <img src="assets/svg/header-logo.svg" />
+                </picture>
+              </a>
+            </div>
+            <img
+              class="menu-btn btn-open"
+              src="assets/svg/open-menu.svg"
+              alt=""
+            />
+            <img
+              class="menu-btn btn-close"
+              src="assets/svg/close-menu.svg"
+              alt=""
+            />
+            <nav>
+              <ul class="menu header__menu">
+                <li><a href="#">Trips</a></li>
+                <li><a href="#">List of property</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Sign in</a></li>
+              </ul>
+            </nav>
+            <div class="header__sign-up">
+              <a href="#">Sign Up</a>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="main">
+        <section
+          class="hero"
+          style="
+            background: linear-gradient(
+                rgba(0, 0, 0, 0.64),
+                rgba(0, 0, 0, 0.64)
+              ),
+              url(assets/img/catalog-hero-1.5.jpg);
+          "
+        >
+          <div class="container">
+            <div class="hero__wrapper">
+              <h1>Find the car of your dream</h1>
+              <div class="hero__form search-box">
+                <form action="#">
+                  <p class="hero__form--location hero__form--input">
+                    <label for="location">Pick-up location</label>
+                    <input
+                      type="text"
+                      name="location"
+                      id="location"
+                      required
+                      placeholder="Wroclaw"
+                    />
+                    <img
+                      class="clear-button"
+                      data-clear-selector="location"
+                      src="assets/svg/clear.svg"
+                      alt=""
+                    />
+                  </p>
+                  <div class="hero__form--date">
+                    <p class="hero__form--input hero__form--start">
+                      <span class="date-icon" data-select="start-date"
+                        ><img src="assets/svg/date-icon.svg" alt=""
+                      /></span>
+                      <label for="start-date">Pick-up date</label>
+                      <input
+                        type="date"
+                        name="start-date"
+                        id="start-date"
+                        required
+                      />
+                    </p>
+                    <p class="hero__form--input hero__form--start">
+                      <span class="date-icon" data-select="start-time"
+                        ><img src="assets/svg/time-icon.svg" alt=""
+                      /></span>
+                      <label for="start-time">Time</label>
+                      <input
+                        type="time"
+                        name="start-time"
+                        id="start-time"
+                        required
+                      />
+                    </p>
+                  </div>
+                  <div class="hero__form--date">
+                    <p class="hero__form--input hero__form--end">
+                      <span class="date-icon" data-select="end-date"
+                        ><img src="assets/svg/date-icon.svg" alt=""
+                      /></span>
+                      <label for="end-date">Pick-out date</label>
+                      <input
+                        type="date"
+                        name="end-date"
+                        id="end-date"
+                        required
+                      />
+                    </p>
+                    <p class="hero__form--input hero__form--end">
+                      <span class="date-icon" data-select="end-time"
+                        ><img src="assets/svg/time-icon.svg" alt=""
+                      /></span>
+                      <label for="end-time">Time</label>
+                      <input
+                        type="time"
+                        name="end-time"
+                        id="end-time"
+                        required
+                      />
+                    </p>
+                  </div>
+                  <p class="hero__form--submit">
+                    <input type="submit" value="Search" />
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="content">
+          <div class="container">
+            <div class="content__wrapper"></div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="footer__logo">
+          <a href="index.html"><img src="assets/svg/min-logo.svg" alt="" /></a>
+        </div>
+        <div class="container">
+          <div class="footer__wrapper">
+            <nav class="footer__nav">
+              <ul>
+                <li><a href="#">Customer Service help</a></li>
+                <li><a href="#">Privacy & cookies</a></li>
+                <li><a href="#">Manage cookie settings</a></li>
+                <li><a href="#">Modern Slavery Statement</a></li>
+                <li><a href="#">Human Rights Statement</a></li>
+                <li><a href="#">Terms and conditions</a></li>
+              </ul>
+            </nav>
+            <span></span>
+            <div class="footer__copy">
+              Copyright © 2025 Supercars.com™. All rights reserved.
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

@@ -44,6 +44,14 @@ select {
     padding: 0 10px;
     margin: 0 auto;
 }
+.wrapper{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    main {
+        flex-grow: 1;
+    }
+}
 .menu-btn{
     position: absolute;
     display: block;
