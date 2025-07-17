@@ -954,7 +954,10 @@ label:has(input[type=checkbox]:focus)::before {
   font-weight: 700;
   line-height: 20px;
   text-align: center;
-  width: 95px;
+  min-width: 95px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 
 .car-card__info--top span.open-info {

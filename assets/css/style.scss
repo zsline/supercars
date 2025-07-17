@@ -409,7 +409,8 @@ label:has(input[type=checkbox]:focus){
                 font-weight: 700;
                 line-height: 20px;
                 text-align: center;
-                width: 95px;
+                min-width: 95px;
+                width: max-content;
             }
             span.open-info{
                 display: none;
