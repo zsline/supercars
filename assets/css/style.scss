@@ -832,6 +832,40 @@ label:has(input[type=checkbox]:focus){
             }
         }
     }
+    .car-line{
+        padding: 20px clamp(1rem, calc(-0.9rem + 4vw), 2.5rem);
+        background-color: var(--s-l-grey);
+        border-radius: 16px;
+        margin-top: 33px;
+        &__wrapper{
+            display: flex;
+            justify-content: space-between;
+        }
+        &__item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 clamp(1.19rem, calc(-2.75rem + 6.56vw), 2.5rem);
+            &--data{
+                font-size: 14px;
+                color: var(--grey);
+                text-wrap: nowrap;
+            }
+            &--value{
+                font-weight: 600;
+                margin-top: 12px;
+            }
+        }
+        &__item:first-child{
+            padding-left: 0;
+        }
+        &__item:last-child{
+            padding-right: 0;
+        }
+        &__item:not(:first-child){
+            border-left: 1px solid var(--grey);
+        }
+    }
 }
 
 // =====================================

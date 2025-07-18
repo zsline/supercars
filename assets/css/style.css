@@ -1510,6 +1510,56 @@ label:has(input[type=checkbox]:focus)::before {
   font-weight: 600;
 }
 
+.car .car-line {
+  padding: 20px clamp(1rem, calc(-0.9rem + 4vw), 2.5rem);
+  background-color: var(--s-l-grey);
+  border-radius: 16px;
+  margin-top: 33px;
+}
+
+.car .car-line__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.car .car-line__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  padding: 0 clamp(1.19rem, calc(-2.75rem + 6.56vw), 2.5rem);
+}
+
+.car .car-line__item--data {
+  font-size: 14px;
+  color: var(--grey);
+  text-wrap: nowrap;
+}
+
+.car .car-line__item--value {
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.car .car-line__item:first-child {
+  padding-left: 0;
+}
+
+.car .car-line__item:last-child {
+  padding-right: 0;
+}
+
+.car .car-line__item:not(:first-child) {
+  border-left: 1px solid var(--grey);
+}
+
 .header {
   position: absolute;
   top: 0;
