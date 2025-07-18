@@ -68,7 +68,7 @@ if(filter){
       filterTitle.style.cursor = 'default';
     })
   });
-}
+
 // ================= Renge slider ====================
 let slideMin = document.getElementById('budget-min');
 let slideMax = document.getElementById('budget-max');
@@ -134,7 +134,7 @@ window.onload = function () {
     });
   }
 };
-
+}
 // ============= Открытите марок машин ===============
 
 const brends = document.querySelectorAll('.filter__item--brand');
@@ -206,5 +206,60 @@ infoBoxes.forEach(el => {
   })
 })
 
+
+// ============ Rating ==============
+const labels = document.querySelectorAll('.label__header');
+
+if(labels.length > 0){
+  initRaitings();
+}
+
+function initRaitings() {
+    let ratingActive, ratingValue;
+    for(let i = 0; i < labels.length; i++) {
+      const rating = labels[i];
+      initRaiting(rating)
+    }
+}
+
+function initRaiting(rating){
+  
+  initRatingVars(rating);
+  setRatingActiveWidth();
+}
+function initRatingVars(rating){
+  ratingActive = rating.querySelector('.rating__active');
+  ratingValue = rating.querySelector('.label__header--raiting');
+  
+}
+function setRatingActiveWidth(index = ratingValue.dataset.rating) {
+  const ratingActiveWidth = index / 0.05;
+  ratingActive.style.width = ratingActiveWidth / 2 + '%';
+  ratingIndex = index;
+
+let charArray = ratingIndex.split('');
+let indexToReplace = charArray.indexOf('.');
+if (indexToReplace !== -1) {
+  charArray.splice(indexToReplace, 1, ',');
+}
+let modifiedString = charArray.join('');
+  ratingValue.innerHTML = modifiedString;
+}
+
+// ========= Галерея машин single-car ============
+
+// == высота картинки
+
+// const galeryHeight = document.querySelector('.car-top__top').offsetHeight;
+// const galeryItems =  document.querySelectorAll('.top-galery__item');
+// if(galeryItems.length > 0){
+//   galeryItems.forEach(item => {
+//     // item.style.height = galeryHeight  / 3  + 'px';
+//     item.style.height = 211  + 'px';
+//     console.log(item);
+    
+//   })
+// }
+// console.dir(galeryHeight / 3  + 'px');
 
 
