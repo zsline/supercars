@@ -1,4 +1,4 @@
-
+document.addEventListener('DOMContentLoaded', () => {
 // ===================== Section Hero ===================
 // Очистка поля ввода
 document.querySelectorAll(".clear-button")
@@ -14,7 +14,6 @@ const formIcons = document.querySelectorAll('.date-icon');
 formIcons.forEach(el => {
   el.addEventListener('click', (e) => {
     document.getElementById(el.dataset.select).click();
-    console.dir(document.getElementById(el.dataset.select));
   })
 });
 
@@ -36,145 +35,151 @@ closeMenu.addEventListener('click', (e) => {
 
 // =========================================================
 // =================  Filter ===============================
+
+
 const filter = document.querySelector('.content__filter');
 const flterItems = document.querySelectorAll('.filter__item');
 const openFilter = document.querySelector('.cars__header--filter');
 const filterTitle = document.querySelector('.filter__title');
 
-flterItems.forEach(el => {
-  let open = el.children[0];
-  if(open){
-    open.addEventListener('click', (e) => {
-      if(!e.target.classList.contains('filter__title')){
-        el.classList.toggle('open');
-      }
-    }); 
-  }
-})
-
-// =================== Мобильный фильтр =========================
-
 if(filter){
-  openFilter.addEventListener('click', (e) => {
-    filter.classList.add('open');
-    filterTitle.innerHTML = 'Close Filter';
-    filterTitle.style.color = '#C49D74';
-    filterTitle.style.cursor = 'pointer';
-    
-    filterTitle.addEventListener('click', () => {
-      filter.classList.remove('open');
-      filterTitle.innerHTML = 'Filters';
-      filterTitle.style.color = 'inherit';
-      filterTitle.style.cursor = 'default';
-    })
-  });
-
-// ================= Renge slider ====================
-let slideMin = document.getElementById('budget-min');
-let slideMax = document.getElementById('budget-max');
-let sliderTrack = document.querySelector('.slider-track');
-
-const sliderMinValue = parseInt(slideMin.min); // 400
-const sliderMaxValue = parseInt(slideMin.max); // 1500
-let minGap = 100;
-
-function sliderOne() {
-  if (parseInt(slideMax.value) - parseInt(slideMin.value) <= minGap) {
-    slideMin.value = parseInt(slideMax.value) - minGap;
-  }
-  fillColor();
-  updateDisplay();
-}
-
-function sliderTwo() {
-  if (parseInt(slideMax.value) - parseInt(slideMin.value) <= minGap) {
-    slideMax.value = parseInt(slideMin.value) + minGap;
-  }
-  fillColor();
-  updateDisplay();
-}
-
-function fillColor() {
-  const percent1 = ((slideMin.value - sliderMinValue) / (sliderMaxValue - sliderMinValue)) * 100;
-  const percent2 = ((slideMax.value - sliderMinValue) / (sliderMaxValue - sliderMinValue)) * 100;
-  sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}%, #C49D74 ${percent1}%, #C49D74 ${percent2}%, #dadae5 ${percent2}%)`;
-}
-
-function updateDisplay() {
-  const displayElement = document.querySelector(".rangeValues");
-  const val1 = parseInt(slideMin.value);
-  const val2 = parseInt(slideMax.value);
-
-  if (!displayElement) return;
-
-  if (val2 < 1500) {
-    displayElement.innerHTML = "£ " + val1 + " - £ " + val2;
-  } else {
-    displayElement.innerHTML = "£ " + val1 + " - £ " + val2 + "+";
-  }
-}
-
-window.onload = function () {
-  // начальная инициализация
-  sliderOne();
-  sliderTwo();
-
-  // обработчики на ползунки
-  slideMin.addEventListener('input', sliderOne);
-  slideMax.addEventListener('input', sliderTwo);
-
-  // кнопка сброса
-  const clearBtn = document.querySelector('.filter__clear');
-  if (clearBtn) {
-    clearBtn.addEventListener('click', () => {
-      slideMin.value = sliderMinValue;
-      slideMax.value = sliderMaxValue;
-      fillColor();
-      updateDisplay();
-    });
-  }
-};
-}
-// ============= Открытите марок машин ===============
-
-const brends = document.querySelectorAll('.filter__item--brand');
-brends.forEach(brend => {
-  brend.children[0].children[0].addEventListener('change', function () {
-    if (this.checked) {
-      brend.classList.add('open');
-      Array.from(brend.children).forEach(el =>{
-        el.children[0].checked = true;
-      })
-    } else {
-      brend.classList.remove('open');
-      Array.from(brend.children).forEach(el =>{
-        el.children[0].checked = false;
-      })
+  flterItems.forEach(el => {
+    let open = el.children[0];
+    if(open){
+      open.addEventListener('click', (e) => {
+        if(!e.target.classList.contains('filter__title')){
+          el.classList.toggle('open');
+        }
+      }); 
     }
+  })
+  
+  // =================== Мобильный фильтр =========================
+  
+  if(filter){
+    openFilter.addEventListener('click', (e) => {
+      filter.classList.add('open');
+      filterTitle.innerHTML = 'Close Filter';
+      filterTitle.style.color = '#C49D74';
+      filterTitle.style.cursor = 'pointer';
+      
+      filterTitle.addEventListener('click', () => {
+        filter.classList.remove('open');
+        filterTitle.innerHTML = 'Filters';
+        filterTitle.style.color = 'inherit';
+        filterTitle.style.cursor = 'default';
+      })
+    });
+  
+  // ================= Renge slider ====================
+  let slideMin = document.getElementById('budget-min');
+  let slideMax = document.getElementById('budget-max');
+  let sliderTrack = document.querySelector('.slider-track');
+  
+  const sliderMinValue = parseInt(slideMin.min); // 400
+  const sliderMaxValue = parseInt(slideMin.max); // 1500
+  let minGap = 100;
+  
+  function sliderOne() {
+    if (parseInt(slideMax.value) - parseInt(slideMin.value) <= minGap) {
+      slideMin.value = parseInt(slideMax.value) - minGap;
+    }
+    fillColor();
+    updateDisplay();
+  }
+  
+  function sliderTwo() {
+    if (parseInt(slideMax.value) - parseInt(slideMin.value) <= minGap) {
+      slideMax.value = parseInt(slideMin.value) + minGap;
+    }
+    fillColor();
+    updateDisplay();
+  }
+  
+  function fillColor() {
+    const percent1 = ((slideMin.value - sliderMinValue) / (sliderMaxValue - sliderMinValue)) * 100;
+    const percent2 = ((slideMax.value - sliderMinValue) / (sliderMaxValue - sliderMinValue)) * 100;
+    sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}%, #C49D74 ${percent1}%, #C49D74 ${percent2}%, #dadae5 ${percent2}%)`;
+  }
+  
+  function updateDisplay() {
+    const displayElement = document.querySelector(".rangeValues");
+    const val1 = parseInt(slideMin.value);
+    const val2 = parseInt(slideMax.value);
+  
+    if (!displayElement) return;
+  
+    if (val2 < 1500) {
+      displayElement.innerHTML = "£ " + val1 + " - £ " + val2;
+    } else {
+      displayElement.innerHTML = "£ " + val1 + " - £ " + val2 + "+";
+    }
+  }
+  
+  window.onload = function () {
+    // начальная инициализация
+    sliderOne();
+    sliderTwo();
+  
+    // обработчики на ползунки
+    slideMin.addEventListener('input', sliderOne);
+    slideMax.addEventListener('input', sliderTwo);
+  
+    // кнопка сброса
+    const clearBtn = document.querySelector('.filter__clear');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        slideMin.value = sliderMinValue;
+        slideMax.value = sliderMaxValue;
+        fillColor();
+        updateDisplay();
+      });
+    }
+  };
+  }
+  // ============= Открытите марок машин ===============
+  
+  const brends = document.querySelectorAll('.filter__item--brand');
+  brends.forEach(brend => {
+    brend.children[0].children[0].addEventListener('change', function () {
+      if (this.checked) {
+        brend.classList.add('open');
+        Array.from(brend.children).forEach(el =>{
+          el.children[0].checked = true;
+        })
+      } else {
+        brend.classList.remove('open');
+        Array.from(brend.children).forEach(el =>{
+          el.children[0].checked = false;
+        })
+      }
+    });
   });
-});
-
-// ================= Сортировка ==========================
-
-function toggleDropdown() {
-  document.getElementById("dropdown").classList.toggle("open");
-}
-
-function selectOption(value) {
-  document.getElementById("selected").textContent = value;
-  document.getElementById("dropdown").classList.remove("open");
-}
-
-// Закрытие при клике вне
-document.addEventListener("click", function (e) {
-  const select = document.querySelector(".custom-select");
-  if (!select.contains(e.target)) {
+  
+  // ================= Сортировка ==========================
+  
+  function toggleDropdown() {
+    document.getElementById("dropdown").classList.toggle("open");
+  }
+  
+  function selectOption(value) {
+    document.getElementById("selected").textContent = value;
     document.getElementById("dropdown").classList.remove("open");
   }
-});
+  
+  // Закрытие при клике вне
+  document.addEventListener("click", function (e) {
+    const select = document.querySelector(".custom-select");
+    if (!select.contains(e.target)) {
+      document.getElementById("dropdown").classList.remove("open");
+    }
+  });
+  
+}
 
 
-// ============= картрчки ===============
+
+// ============= карточки ===============
 
 const carBoxes = document.querySelectorAll('.car-card__img');
 const infoBoxes = document.querySelectorAll('.car-card__info');
@@ -188,13 +193,9 @@ if(carBoxes.length > 0) {
 infoBoxes.forEach(el => {
   let infoBtnTop = el.querySelector('.open-info').offsetTop;
   let infoBtnBox = el.querySelector('.car-card__info--characteristic');
-  
-  console.log(window.innerWidth);
-
   if( window.innerWidth >= parseInt(394)){
     infoBtnBox.style.top = infoBtnTop + 38 + 'px';
   } else {
-    console.log('Mobile');
     infoBtnBox.style.top = 0;
     infoBtnBox.style.left = 12 + 'px';
     infoBtnBox.style.right = 'auto';
@@ -246,20 +247,31 @@ let modifiedString = charArray.join('');
   ratingValue.innerHTML = modifiedString;
 }
 
-// ========= Галерея машин single-car ============
+// ========= Accordeon ============
 
-// == высота картинки
+const accordion = document.querySelectorAll('.accordion__item');
+if(accordion.length > 0){
+  accordion.forEach(el => {
 
-// const galeryHeight = document.querySelector('.car-top__top').offsetHeight;
-// const galeryItems =  document.querySelectorAll('.top-galery__item');
-// if(galeryItems.length > 0){
-//   galeryItems.forEach(item => {
-//     // item.style.height = galeryHeight  / 3  + 'px';
-//     item.style.height = 211  + 'px';
-//     console.log(item);
-    
-//   })
-// }
-// console.dir(galeryHeight / 3  + 'px');
+    el.addEventListener('click', (e) => {
+      const self = e.currentTarget;
+      const control = self.querySelector('.accordion__item--control');
+      const content = self.querySelector('.accordion__item--content');
+      const icon = self.querySelector('.accordion__item--icon');
+      if(self.classList.contains('open')){
+        self.classList.remove('open');
+        control.setAttribute('aria-expanded', false);
+        content.setAttribute('aria-hidden', true);
+        icon.innerHTML = '+';
+        return;
+      }
+      accordion.forEach(el => {
+        el.classList.remove('open');
+      });
+      self.classList.toggle('open');
+    });
+  });
+}
 
+});
 
