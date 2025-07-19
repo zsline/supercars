@@ -6,6 +6,7 @@
     --bg-menu: #DADBDC;
     --primary: #C49D74;
     --dark: #141414;
+    --light-dark: #2E2E2E;
     --dark-grey: #6A6A6A;
     --grey: #8B8B8B;
     --green: #81C62D;
@@ -833,28 +834,41 @@ label:has(input[type=checkbox]:focus){
         }
     }
     .car-line{
-        padding: 20px clamp(1rem, calc(-0.9rem + 4vw), 2.5rem);
+        padding: clamp(0.5rem, calc(-1.75rem + 3.75vw), 1.25rem) clamp(0.63rem, calc(-5rem + 9.38vw), 2.5rem);
         background-color: var(--s-l-grey);
         border-radius: 16px;
         margin-top: 33px;
+        overflow: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
         &__wrapper{
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            width: 100%;
         }
         &__item {
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 0 clamp(1.19rem, calc(-2.75rem + 6.56vw), 2.5rem);
+            padding: 0 clamp(0.75rem, calc(-4.5rem + 8.75vw), 2.5rem);
             &--data{
                 font-size: 14px;
+                line-height: 100%;
                 color: var(--grey);
                 text-wrap: nowrap;
             }
             &--value{
+                line-height: 100%;
                 font-weight: 600;
-                margin-top: 12px;
+                margin-top: 8px;
+                text-wrap: nowrap;
+
             }
+            line-height: 100%;
         }
         &__item:first-child{
             padding-left: 0;
@@ -864,6 +878,36 @@ label:has(input[type=checkbox]:focus){
         }
         &__item:not(:first-child){
             border-left: 1px solid var(--grey);
+        }
+    }
+    .car-boxes{
+        margin-top: 36px;
+        padding-bottom: 42px;
+        border-bottom: 1px solid #c3c3c3;
+        &__wrapper{
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        &__item{
+            border-radius: 16px;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--light-dark);
+            color: var(--white);
+            width: calc((100% / 6) - (5 * 16px / 6));
+            svg path {
+                fill: var(--s-l-grey);
+            }
+            &:nth-child(2n + 2) {
+                background-color: var(--s-l-grey);
+                color: var(--dark);
+                svg path {
+                    fill: var(--light-dark);
+                }
+            }
         }
     }
 }
@@ -1268,6 +1312,9 @@ label:has(input[type=checkbox]:focus){
             }
         }
     }
+    .car .car-line__wrapper{
+        justify-content: space-between;
+    }
     .car .car-top__top .top-galery{ 
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1276,6 +1323,9 @@ label:has(input[type=checkbox]:focus){
     }
     .top-galery__item:last-child{
         display: block;
+    }
+    .car .car-line__item:last-child{
+        padding-right: clamp(0.75rem, calc(-4.5rem + 8.75vw), 2.5rem);
     }
 }
 @media (max-width:870px) {

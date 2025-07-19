@@ -446,6 +446,7 @@ template {
   --bg-menu: #DADBDC;
   --primary: #C49D74;
   --dark: #141414;
+  --light-dark: #2E2E2E;
   --dark-grey: #6A6A6A;
   --grey: #8B8B8B;
   --green: #81C62D;
@@ -1511,19 +1512,28 @@ label:has(input[type=checkbox]:focus)::before {
 }
 
 .car .car-line {
-  padding: 20px clamp(1rem, calc(-0.9rem + 4vw), 2.5rem);
+  padding: clamp(0.5rem, calc(-1.75rem + 3.75vw), 1.25rem) clamp(0.63rem, calc(-5rem + 9.38vw), 2.5rem);
   background-color: var(--s-l-grey);
   border-radius: 16px;
   margin-top: 33px;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.car .car-line::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 .car .car-line__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
 }
 
 .car .car-line__item {
@@ -1534,18 +1544,22 @@ label:has(input[type=checkbox]:focus)::before {
       -ms-flex-align: center;
           align-items: center;
   gap: 10px;
-  padding: 0 clamp(1.19rem, calc(-2.75rem + 6.56vw), 2.5rem);
+  padding: 0 clamp(0.75rem, calc(-4.5rem + 8.75vw), 2.5rem);
+  line-height: 100%;
 }
 
 .car .car-line__item--data {
   font-size: 14px;
+  line-height: 100%;
   color: var(--grey);
   text-wrap: nowrap;
 }
 
 .car .car-line__item--value {
+  line-height: 100%;
   font-weight: 600;
-  margin-top: 12px;
+  margin-top: 8px;
+  text-wrap: nowrap;
 }
 
 .car .car-line__item:first-child {
@@ -1558,6 +1572,51 @@ label:has(input[type=checkbox]:focus)::before {
 
 .car .car-line__item:not(:first-child) {
   border-left: 1px solid var(--grey);
+}
+
+.car .car-boxes {
+  margin-top: 36px;
+  padding-bottom: 42px;
+  border-bottom: 1px solid #c3c3c3;
+}
+
+.car .car-boxes__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 16px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.car .car-boxes__item {
+  border-radius: 16px;
+  padding: 16px 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: var(--light-dark);
+  color: var(--white);
+  width: calc((100% / 6) - (5 * 16px / 6));
+}
+
+.car .car-boxes__item svg path {
+  fill: var(--s-l-grey);
+}
+
+.car .car-boxes__item:nth-child(2n + 2) {
+  background-color: var(--s-l-grey);
+  color: var(--dark);
+}
+
+.car .car-boxes__item:nth-child(2n + 2) svg path {
+  fill: var(--light-dark);
 }
 
 .header {
@@ -2074,6 +2133,11 @@ label:has(input[type=checkbox]:focus)::before {
             transform: translate(-50%, 0);
     opacity: 1;
   }
+  .car .car-line__wrapper {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
   .car .car-top__top .top-galery {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
@@ -2083,6 +2147,9 @@ label:has(input[type=checkbox]:focus)::before {
   }
   .top-galery__item:last-child {
     display: block;
+  }
+  .car .car-line__item:last-child {
+    padding-right: clamp(0.75rem, calc(-4.5rem + 8.75vw), 2.5rem);
   }
 }
 
