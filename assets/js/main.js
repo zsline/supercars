@@ -252,7 +252,6 @@ let modifiedString = charArray.join('');
 const accordion = document.querySelectorAll('.accordion__item');
 if(accordion.length > 0){
   accordion.forEach(el => {
-
     el.addEventListener('click', (e) => {
       const self = e.currentTarget;
       const control = self.querySelector('.accordion__item--control');
@@ -267,8 +266,10 @@ if(accordion.length > 0){
       }
       accordion.forEach(el => {
         el.classList.remove('open');
+        el.querySelector('.accordion__item--icon').innerHTML = '+';
       });
       self.classList.toggle('open');
+      icon.innerHTML = '-';
     });
   });
 }

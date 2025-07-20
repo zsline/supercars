@@ -466,13 +466,13 @@ h1 {
 }
 
 h2 {
-  font-size: 32px;
+  font-size: clamp(1.5rem, calc(1.3rem + 0.98vw), 2rem);
   font-weight: 600;
 }
 
 h3 {
-  font-size: 24px;
-  line-height: 32px;
+  font-size: clamp(1.13rem, calc(0.98rem + 0.73vw), 1.5rem);
+  line-height: 130%;
   font-weight: 600;
 }
 
@@ -1659,8 +1659,8 @@ label:has(input[type=checkbox]:focus)::before {
   border-top: 1px solid #c7c7c7;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 50% 50%;
-      grid-template-columns: 50% 50%;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
   gap: 32px;
 }
 
@@ -1671,13 +1671,26 @@ label:has(input[type=checkbox]:focus)::before {
   margin-bottom: 24px;
 }
 
+.car .car-content__faq {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 12px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.car .car-content__faq--accordion h3 {
+  text-align: left;
+}
+
 .car .car-content__faq--accordion .accordion__item {
   margin-bottom: 16px;
 }
 
 .accordion__item--control {
   width: 100%;
-  padding: 24px;
+  padding: clamp(0.75rem, calc(0.46rem + 1.46vw), 1.5rem);
   background-color: var(--s-l-grey);
   border-radius: 16px;
   display: -webkit-box;
@@ -2024,6 +2037,9 @@ label:has(input[type=checkbox]:focus)::before {
 
 .footer {
   position: relative;
+  max-width: 100vw;
+  overflow: hidden;
+  margin-top: -1px;
   background-color: var(--dark);
   color: var(--grey);
   padding: 96px 0 32px;
@@ -2081,7 +2097,7 @@ label:has(input[type=checkbox]:focus)::before {
   background-repeat: no-repeat;
   background-size: cover;
   top: 0;
-  left: -134px;
+  left: -132px;
 }
 
 .footer__logo::after {
@@ -2093,7 +2109,7 @@ label:has(input[type=checkbox]:focus)::before {
   background-repeat: no-repeat;
   background-size: cover;
   top: 0;
-  right: -134px;
+  right: -132px;
 }
 
 .footer__wrapper {
@@ -2196,6 +2212,15 @@ label:has(input[type=checkbox]:focus)::before {
   .car-card__info--top span.open-info {
     display: block;
   }
+  .car .car-boxes__wrapper {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+  .car .car-boxes__item {
+    width: 100%;
+  }
 }
 
 @media (max-width: 924px) {
@@ -2294,6 +2319,12 @@ label:has(input[type=checkbox]:focus)::before {
   .car-card__info--garanted {
     max-width: 270px;
   }
+  .car .car-content__wrapper {
+    display: block;
+  }
+  .car-content__faq {
+    margin-top: 56px;
+  }
 }
 
 @media (max-width: 670px) {
@@ -2344,6 +2375,12 @@ label:has(input[type=checkbox]:focus)::before {
   }
   .car .car-top__top .top-galery__item:nth-child(2) {
     display: none;
+  }
+  .car .car-boxes__wrapper {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -2405,6 +2442,16 @@ label:has(input[type=checkbox]:focus)::before {
   .car .car-top__top .top-galery__item:not(:last-child) {
     margin-bottom: 16px;
   }
+  .car .car-boxes__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 16px;
+  }
 }
 
 @media (max-width: 394px) {
@@ -2424,6 +2471,16 @@ label:has(input[type=checkbox]:focus)::before {
     left: 24px;
     right: auto;
     top: -12px;
+  }
+  .car .car-boxes__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 16px;
   }
 }
 /*# sourceMappingURL=style.css.map */
