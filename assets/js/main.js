@@ -273,6 +273,23 @@ if(accordion.length > 0){
     });
   });
 }
-
+  flatpickr("#start-date", {
+    dateFormat: 'D d M',
+  });
+  flatpickr("#end-date", {
+    dateFormat: 'D d M',
+  });
+  flatpickr("#start-time", {
+    enableTime: true,
+    noCalendar: true,
+    time_24hr: true,
+    dateFormat: 'H:i',
+  });
+  flatpickr("#end-time", {
+    enableTime: true,
+    noCalendar: true,
+    time_24hr: true,
+    dateFormat: 'H:i',
+  });
 });
 
