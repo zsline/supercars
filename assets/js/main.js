@@ -273,6 +273,15 @@ if(accordion.length > 0){
     });
   });
 }
+
+new AirDatepicker('#start-date', {
+  dateFormat: 'E dd MMM'
+});
+new AirDatepicker('#start-time', {
+  timepicker:true,
+  onlyTimepicker: true
+});
+
   flatpickr("#start-date", {
     dateFormat: 'D d M',
   });
