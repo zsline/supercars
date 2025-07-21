@@ -346,7 +346,7 @@ input[type=range]::-webkit-slider-thumb {
     transform: translateY(-7px);
 }
 
-input[type="date"]{
+input[type=date]{
     border-top-right-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
     max-width: 154px;
@@ -355,12 +355,12 @@ input[type="date"]{
         left: 0;
     }
 }
-input[type="time"]{
+input[type=time]{
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
     background-color: #313131 !important;
 }
-input[type="submit"]{
+input[type=submit]{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -368,9 +368,9 @@ input[type="submit"]{
     color: var(--dark) !important;
     background-color: var(--primary) !important;
 }
-input[type="date"]::-webkit-calendar-picker-indicator,
-input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-outer-spin-button {
+input[type=date]::-webkit-calendar-picker-indicator,
+input[type=date]::-webkit-inner-spin-button,
+input[type=date]::-webkit-outer-spin-button {
   position: absolute;
   opacity: 0;
   width: 40px;
@@ -381,12 +381,12 @@ input[type="date"]::-webkit-outer-spin-button {
   z-index: 10;
 }
 
-input[type="date"]::-webkit-input-placeholder {
+input[type=date]::-webkit-input-placeholder {
     visibility: hidden !important;
 }
-input[type="time"]::-webkit-calendar-picker-indicator,
-input[type="time"]::-webkit-inner-spin-button,
-input[type="time"]::-webkit-outer-spin-button {
+input[type=time]::-webkit-calendar-picker-indicator,
+input[type=time]::-webkit-inner-spin-button,
+input[type=time]::-webkit-outer-spin-button {
   position: absolute;
   opacity: 0;
   width: 40px;
@@ -397,7 +397,7 @@ input[type="time"]::-webkit-outer-spin-button {
   z-index: 10;
 }
 
-input[type="time"]::-webkit-input-placeholder {
+input[type=time]::-webkit-input-placeholder {
     visibility: hidden !important;
 }
 
@@ -1125,8 +1125,8 @@ label:has(input[type=checkbox]:focus){
         margin-top: 32px;
         form{
             display: flex;
-            justify-content: space-between;
             gap: 12px;
+            justify-content: space-between;
         }
         &--input{
             position: relative;
@@ -1179,7 +1179,7 @@ label:has(input[type=checkbox]:focus){
             position: relative;
             max-width: 478px;
             min-width: 266px;
-            width: 100%;
+            flex-grow: 1;
             &::after{
                 position: absolute;
                 content: '';
@@ -1193,10 +1193,31 @@ label:has(input[type=checkbox]:focus){
             }
         }
         &--date{
+            flex-grow: 0;
+            // max-width: 268px;
             display: flex;
-        }
-        &--start{
-            display: flex;
+            p:first-child{
+                max-width: 60%;
+                width: 60%;
+                input{
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
+                    width: 100%;
+                    min-width: 154px;
+                }
+            }
+            p:last-child{
+                max-width: 40%;
+                width: 40%;
+                input{
+                    border-top-left-radius: 0;
+                    border-bottom-left-radius: 0;
+                    background-color: var(--light-dark);
+                    width: 100%;
+                    min-width: 114px;
+                }
+            }
+
         }
     }
 }
@@ -1341,11 +1362,16 @@ label:has(input[type=checkbox]:focus){
         form{
             flex-direction: column;
             align-items: center;
+            max-width: 486px;
+            margin: 0 auto;
+            p {
+                width: 100%;
+            }
             }
         }
     }
     input[type="submit"]{
-        width: 266px;
+        width: 100%;
     }
     .car-card{
         position: relative;
@@ -1530,6 +1556,11 @@ label:has(input[type=checkbox]:focus){
 
 }
 @media (max-width:500px){
+
+    .hero__form{
+        padding: 12px;
+        border-radius: 28px;
+    }
     .content__wrapper .cars__header{
         flex-direction: column;
         align-items: center;
