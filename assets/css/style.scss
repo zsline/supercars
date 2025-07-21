@@ -301,6 +301,12 @@ select {
         }
     }
 }
+// input[type=range]{
+//     position: absolute;
+//     bottom: 23px;
+//     left: 24px;
+//     right: 24px;
+// }
 :is(.open) > * label{
     pointer-events: auto;
 }
@@ -313,6 +319,7 @@ input[type=range]{
     appearance: none;
     background-color: transparent;
     pointer-events: none;
+
 }
 .slider-track{
     height: 6px;
@@ -1637,6 +1644,9 @@ label:has(input[type=checkbox]:focus){
         flex-direction: column;
         gap: 16px;
     }
+}
+.air-datepicker--buttons, .air-datepicker--time {
+    padding: 12px;
 }
 // * {
 //     outline: 1px solid #000;

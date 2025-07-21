@@ -2516,4 +2516,8 @@ label:has(input[type=checkbox]:focus)::before {
     gap: 16px;
   }
 }
+
+.air-datepicker--buttons, .air-datepicker--time {
+  padding: 12px;
+}
 /*# sourceMappingURL=style.css.map */
