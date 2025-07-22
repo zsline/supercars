@@ -383,13 +383,36 @@ const swiper1 = new Swiper('.area__slider', {
     prevEl: '.area-button-prev',
   },
 });
+
+const swiperCarThumbs = new Swiper('.car-slider-thumbs', {
+  slidesPerView: 6,
+  spaceBetween: 12,
+  breakpoints: {
+    320: {
+      slidesPerView: 4,
+      spaceBetween: 4
+    },
+    440: {
+      slidesPerView: 5,
+      spaceBetween: 8
+    },
+    760: {
+      slidesPerView: 6,
+      spaceBetween: 12
+    },
+  },
+});
 const swiperCar = new Swiper('.car-slider', {
-  // slidesPerView: 1,
+  slidesPerView: 1,
   spaceBetween: 24,
   navigation: {
     nextEl: '.car-modal-button-next',
     prevEl: '.car-modal-button-prev',
   },
+  thumbs: {
+    swiper: swiperCarThumbs,
+  },
+
 });
 
 

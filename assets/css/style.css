@@ -644,11 +644,12 @@ input[list="locations"]::-webkit-calendar-picker-indicator {
       -ms-flex-align: center;
           align-items: center;
   padding: 80px 0;
+  overflow-y: auto;
 }
 
 .car-modal__close {
   position: absolute;
-  top: -60px;
+  top: 0px;
   right: 48px;
   cursor: pointer;
 }
@@ -704,6 +705,19 @@ input[list="locations"]::-webkit-calendar-picker-indicator {
 
 .car-modal .car-slider img {
   width: 100%;
+}
+
+.car-modal .car-slider-thumbs {
+  height: 20%;
+  margin-top: 24px;
+}
+
+.car-slider-thumbs .swiper-slide {
+  opacity: 0.5;
+}
+
+.car-modal .car-slider-thumbs .swiper-slide-thumb-active {
+  opacity: 1 !important;
 }
 
 .rating {
@@ -1499,6 +1513,11 @@ label:has(input[type=checkbox]:focus)::before {
   width: 100%;
   border-radius: 16px;
   overflow: hidden;
+  cursor: pointer;
+}
+
+.car .car-top__top .top-galery__item:hover img {
+  scale: 1.1;
 }
 
 .car .car-top__top .top-galery__item img {
@@ -1506,6 +1525,9 @@ label:has(input[type=checkbox]:focus)::before {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  scale: 1;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .car .car-top__top .top-galery__item:nth-child(1) {
@@ -1559,6 +1581,7 @@ label:has(input[type=checkbox]:focus)::before {
   font-weight: 600;
   text-decoration: underline;
   cursor: pointer;
+  z-index: 2;
 }
 
 .car .car-top__top .top-info__price .car-card__book--title {
@@ -2679,6 +2702,12 @@ label:has(input[type=checkbox]:focus)::before {
 }
 
 @media (max-width: 500px) {
+  .car-modal__close {
+    top: -24px;
+  }
+  .car-slider-thumbs {
+    margin-top: 12px;
+  }
   .car-modal__wrapper {
     width: 100%;
     padding: 12px;

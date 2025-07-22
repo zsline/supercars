@@ -162,9 +162,10 @@ select {
     justify-content: center;
     align-items: center;
     padding: 80px 0;
+    overflow-y: auto;
     &__close{
         position: absolute;
-        top: -60px;
+        top: 0px;
         right: 48px;
         cursor: pointer;
     }
@@ -203,7 +204,16 @@ select {
             width: 100%;
         }
     }
-
+    .car-slider-thumbs{
+        height: 20%;
+        margin-top: 24px;
+    }
+  }
+  .car-slider-thumbs .swiper-slide{
+    opacity: 0.5;
+  }
+  .car-modal .car-slider-thumbs .swiper-slide-thumb-active{
+    opacity: 1 !important;
   }
 // ====================
 // === Рейтинг ==
@@ -825,10 +835,18 @@ label:has(input[type=checkbox]:focus){
                     width: 100%;
                     border-radius: 16px;
                     overflow: hidden;
+                    cursor: pointer;
+                    &:hover{
+                        img{
+                            scale: (1.1);
+                        }
+                    }
                     img{
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
+                        scale: (1);
+                        transition: all 0.3s;
                     }
                     &:nth-child(1){
                         grid-column-start: 1;
@@ -862,6 +880,7 @@ label:has(input[type=checkbox]:focus){
                             font-weight: 600;
                             text-decoration: underline;
                             cursor: pointer;
+                            z-index: 2;
                         }
                     }
                 }
@@ -1761,6 +1780,12 @@ label:has(input[type=checkbox]:focus){
 
 }
 @media (max-width:500px){
+    .car-modal__close{
+        top: -24px;
+    }
+    .car-slider-thumbs{
+        margin-top: 12px;
+    }
     .car-modal{
         &__wrapper{
         width: 100%;
