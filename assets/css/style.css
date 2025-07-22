@@ -1796,6 +1796,7 @@ label:has(input[type=checkbox]:focus)::before {
   width: 100%;
   padding: clamp(0.75rem, calc(0.46rem + 1.46vw), 1.5rem);
   background-color: var(--s-l-grey);
+  color: var(--dark) !important;
   border-radius: 16px;
   display: -webkit-box;
   display: -ms-flexbox;

@@ -298,8 +298,12 @@ document.addEventListener('DOMContentLoaded', () => {
     onlyTimepicker: true,
     isMobile: true
   });
+
+
+
+  // ========= Слайдер в модальном окне =================
   const modal = document.querySelector('.car-modal');
-  const openModal = document.querySelector('.top-galery__item:last-child');
+  const openModal = document.querySelectorAll('.top-galery__item');
   const closeModal = modal.querySelector('.car-modal__close');
   function openSlider(modal) {
     modal.classList.remove('hidden');
@@ -310,9 +314,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflowY = 'auto';
   }
   if(modal){
-    openModal.addEventListener('click', () => {
-      openSlider(modal)
-    });
+    openModal.forEach(el => {
+      el.addEventListener('click', () => {
+        openSlider(modal);
+      });
+    })
     closeModal.addEventListener('click', () => {
       closeSlider(modal);
     })
@@ -323,7 +329,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+// ===========================================
 
+
+// ====== Выбор локации в верхней форме ==============
 function toggleDropdown() {
   document.getElementById("dropdown").classList.toggle("open");
 }
@@ -342,7 +351,10 @@ document.addEventListener("click", function (e) {
   }
 });
 }
+// ==============================================
 
+
+// =============  Like item в нижнем слайдере ============
 const likeBtn = document.querySelectorAll('.area__slide--img span');
 likeBtn.forEach(el => {
   el.addEventListener('click', e => {
