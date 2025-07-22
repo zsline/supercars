@@ -138,7 +138,7 @@ select {
 
 
   .hidden {
-    display: none;
+    display: none !important;
   }
   datalist {
     width: 100%;
@@ -146,6 +146,64 @@ select {
   }
   input[list="locations"]::-webkit-calendar-picker-indicator {
     display: none !important;
+  }
+
+
+  .car-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 0;
+    &__close{
+        position: absolute;
+        top: -60px;
+        right: 48px;
+        cursor: pointer;
+    }
+    &__wrapper{
+        position: relative;
+        padding: 54px;
+        max-width: 80%;
+        &--btns{
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            .area-button {
+                background-color: var(--dark-grey);
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+            }
+            .car-modal-button-next {
+                transform: rotate(180deg);
+            }
+        }
+    }
+    .car-slider{
+        max-width: 765px;
+        max-height: 520px;
+        width: 100%;
+        img{
+            width: 100%;
+        }
+    }
+
   }
 // ====================
 // === Рейтинг ==
@@ -1566,6 +1624,10 @@ label:has(input[type=checkbox]:focus){
     }
 }
 @media (max-width:924px){
+    .car-modal__wrapper{
+        max-width: 94%;
+        margin: auto;
+    }
     .btn-open{
         display: block;
     }
@@ -1699,7 +1761,18 @@ label:has(input[type=checkbox]:focus){
 
 }
 @media (max-width:500px){
-
+    .car-modal{
+        &__wrapper{
+        width: 100%;
+        padding: 12px;
+            .car-modal__wrapper--btns{
+                display: none;
+            }
+        }
+        &__close{
+            right: 12px;
+        }
+    }
     .hero__form{
         padding: 12px;
         border-radius: 28px;
