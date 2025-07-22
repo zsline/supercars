@@ -41,30 +41,7 @@ h5{
     font-weight: 500;
     line-height: 24px;
 }
-ul{
-    color: var(--grey);
-    margin-top: 24px;
-    font-size: 18px;
-    li{
-        padding-left: 24px;
-        line-height: 140%;
-        position: relative;
-        &::before {
-            position: absolute;
-            content: '';
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: var(--grey);
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        &:not(:last-child){
-            margin-bottom: 24px;
-        }
-    }
-}
+
 select {
     border-color: transparent;
 }
@@ -319,7 +296,14 @@ input[type=range]{
     appearance: none;
     background-color: transparent;
     pointer-events: none;
-
+    &::after{
+        height: 6px;
+        position: absolute;
+        bottom: 23px;
+        left: 24px;
+        right: 24px;
+        border-radius: 3px;
+    }
 }
 .slider-track{
     height: 6px;
@@ -914,7 +898,6 @@ label:has(input[type=checkbox]:focus){
     .car-boxes{
         margin-top: 36px;
         padding-bottom: 42px;
-        // border-bottom: 1px solid #c3c3c3;
         &__wrapper{
             display: flex;
             gap: 16px;
@@ -938,6 +921,9 @@ label:has(input[type=checkbox]:focus){
                 svg path {
                     fill: var(--light-dark);
                 }
+            }
+            &--title{
+                font-weight: 600;
             }
         }
     }
@@ -1023,6 +1009,31 @@ label:has(input[type=checkbox]:focus){
     }
     h2{
         margin-bottom: 24px;
+    }
+}
+.list {
+    ul{
+        color: var(--grey);
+        margin-top: 24px;
+        font-size: 18px;
+        li{
+            padding-left: 24px;
+            line-height: 140%;
+            position: relative;
+            &::before {
+                position: absolute;
+                content: '';
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background-color: var(--grey);
+                left: 0;
+                top: 9px;
+            }
+            &:not(:last-child){
+                margin-bottom: 24px;
+            }
+        }
     }
 }
 // =====================================
@@ -1262,7 +1273,120 @@ label:has(input[type=checkbox]:focus){
         }
     }
 }
+.area {
+    padding-bottom: 65px;
+    h2{
+        text-align: center;
+    }
+    &__wrapper{
+        position: relative;
+        &--btns{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            position: absolute;
+            top: 124px;
+            z-index: 2;
+        }
+        .area-button{
+            width: 35px;
+            height: 35px;
+            background-color: var(--light-dark);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            &.swiper-button-disabled{
+                cursor: default;
+                background-color: var(--dark-grey);
+            }
+            &-next{
+                transform: rotate(180deg) translateX(-10px);
 
+            }
+            &-prev{
+                transform:  translateX(-10px);
+
+            }
+        }
+    }
+    &__slider{
+        margin-top: 58px;
+
+    }
+    &__slide{
+        padding-bottom: 12px;
+        &--img{
+            position: relative;
+            min-height: 248px;
+            background-color: var(--s-l-grey);
+            border-radius: 16px;
+            overflow: hidden;
+            padding: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 100%;
+            }
+            span{
+                position: absolute;
+                top: 18px;
+                right: 18px;
+                cursor: pointer;
+                &.check{
+                    svg{
+                        path {
+                            fill:"#2E2E2E";
+                        }
+                    }
+                }
+            }
+
+        }
+        .slide-info{
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            margin: 18px 0;
+            font-size: 16px;
+            font-weight: 600;
+            &__price{
+                min-width: 54px;
+                flex-grow: 0;
+                &--per{
+                    font-size: 9px;
+                    font-weight: 500px;
+                    color: var(--grey);
+                }
+            }
+        }
+        .slide-data{
+            display: flex;
+            gap: 16px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--grey);
+            &__item{
+                position: relative;
+                padding-left: 23px;
+            }
+            &__icon{
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+    }
+}
+.check > svg  {
+            fill:#2E2E2E;
+        }
 .footer{
     position: relative;
     max-width: 100vw;

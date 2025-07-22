@@ -158,22 +158,7 @@ if(filter){
   
   // ================= Сортировка ==========================
   
-  function toggleDropdown() {
-    document.getElementById("dropdown").classList.toggle("open");
-  }
-  
-  function selectOption(value) {
-    document.getElementById("selected").textContent = value;
-    document.getElementById("dropdown").classList.remove("open");
-  }
-  
-  // Закрытие при клике вне
-  document.addEventListener("click", function (e) {
-    const select = document.querySelector(".custom-select");
-    if (!select.contains(e.target)) {
-      document.getElementById("dropdown").classList.remove("open");
-    }
-  });
+
   
 }
 
@@ -321,3 +306,62 @@ new AirDatepicker('#end-time', {
 
 });
 
+function toggleDropdown() {
+  document.getElementById("dropdown").classList.toggle("open");
+}
+
+function selectOption(value) {
+  document.getElementById("selected").textContent = value;
+  document.getElementById("dropdown").classList.remove("open");
+}
+
+// Закрытие при клике вне
+if(document.getElementById("dropdown")){
+document.addEventListener("click", function (e) {
+  const select = document.querySelector(".custom-select");
+  if (!select.contains(e.target)) {
+    document.getElementById("dropdown").classList.remove("open");
+  }
+});
+}
+
+const likeBtn = document.querySelectorAll('.area__slide--img span');
+likeBtn.forEach(el => {
+  el.addEventListener('click', e => {
+    el.classList.toggle('check');
+  })
+})
+
+const swiper = new Swiper('.area__slider', {
+  // Optional parameters
+  autoplay: {
+    delay: 4000,
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 12
+    },
+    440: {
+      slidesPerView: 2,
+      spaceBetween: 12
+    },
+    760: {
+      slidesPerView: 3,
+      spaceBetween: 24
+    },
+    930: {
+      slidesPerView: 4,
+      spaceBetween: 40
+    },
+    1120: {
+      slidesPerView: 5,
+      spaceBetween: 40
+    }
+  },
+  // Navigation arrows
+  navigation: {
+    nextEl: '.area-button-next',
+    prevEl: '.area-button-prev',
+  },
+});
