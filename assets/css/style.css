@@ -609,6 +609,21 @@ select {
   background: #f0f0f0;
 }
 
+.hidden {
+  display: none;
+}
+
+datalist {
+  width: 100%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+input[list="locations"]::-webkit-calendar-picker-indicator {
+  display: none !important;
+}
+
 .rating {
   display: -webkit-box;
   display: -ms-flexbox;

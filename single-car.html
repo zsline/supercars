@@ -72,13 +72,22 @@
                 <form action="#">
                   <p class="hero__form--location hero__form--input">
                     <label for="location">Pick-up location</label>
+                    <datalist id="locations">
+                      <option value="Wroclaw"></option>
+                      <option value="United Kingdom"></option>
+                      <option value="Dubai"></option>
+                      <option value="Monaco"></option>
+                      <option value="Las Vegas"></option>
+                    </datalist>
                     <input
                       type="text"
                       name="location"
                       id="location"
                       required
                       placeholder="Wroclaw"
+                      list="locations"
                     />
+
                     <img
                       class="clear-button"
                       data-clear-selector="location"

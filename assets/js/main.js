@@ -365,3 +365,5 @@ const swiper = new Swiper('.area__slider', {
     prevEl: '.area-button-prev',
   },
 });
+
+

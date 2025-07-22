@@ -135,6 +135,18 @@ select {
   .dropdown div:hover {
     background: #f0f0f0;
   }
+
+
+  .hidden {
+    display: none;
+  }
+  datalist {
+    width: 100%;
+    appearance: none;
+  }
+  input[list="locations"]::-webkit-calendar-picker-indicator {
+    display: none !important;
+  }
 // ====================
 // === Рейтинг ==
 .rating{
