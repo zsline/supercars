@@ -304,19 +304,29 @@ document.addEventListener('DOMContentLoaded', () => {
   // ========= Слайдер в модальном окне =================
   const modal = document.querySelector('.car-modal');
   const openModal = document.querySelectorAll('.top-galery__item');
-  const closeModal = modal.querySelector('.car-modal__close');
-  function openSlider(modal) {
-    modal.classList.remove('hidden');
-    document.body.style.overflowY = 'hidden';
-  }
-  function closeSlider(modal) {
-    modal.classList.add('hidden');
-    document.body.style.overflowY = 'auto';
-  }
+  const slides = document.querySelectorAll('.car-slider .swiper-slide');
   if(modal){
+    const closeModal = modal.querySelector('.car-modal__close');
+    function openSlider(modal, index) {
+      modal.classList.remove('hidden');
+      swiperCar.slideTo(index)
+      document.body.style.overflowY = 'hidden';
+    }
+    function closeSlider(modal) {
+      modal.classList.add('hidden');
+      document.body.style.overflowY = 'auto';
+    }
     openModal.forEach(el => {
-      el.addEventListener('click', () => {
-        openSlider(modal);
+      let index = 0;
+      el.addEventListener('click', (e) => {
+        for(i = 0; i < slides.length; i++){
+          const img = slides[i].firstElementChild.src.split('/').pop();
+          const fileName = e.currentTarget.firstElementChild.src.split('/').pop();
+          if(fileName == img){
+            index = i;
+          }
+        }
+        openSlider(modal, index);
       });
     })
     closeModal.addEventListener('click', () => {
@@ -327,6 +337,37 @@ document.addEventListener('DOMContentLoaded', () => {
         closeSlider(modal);
       }
     });
+    
+const swiperCarThumbs = new Swiper('.car-slider-thumbs', {
+  slidesPerView: 6,
+  spaceBetween: 12,
+  breakpoints: {
+    320: {
+      slidesPerView: 4,
+      spaceBetween: 4
+    },
+    440: {
+      slidesPerView: 5,
+      spaceBetween: 8
+    },
+    760: {
+      slidesPerView: 6,
+      spaceBetween: 12
+    },
+  },
+});
+const swiperCar = new Swiper('.car-slider', {
+  slidesPerView: 1,
+  spaceBetween: 24,
+  navigation: {
+    nextEl: '.car-modal-button-next',
+    prevEl: '.car-modal-button-prev',
+  },
+  thumbs: {
+    swiper: swiperCarThumbs,
+  },
+
+});
   }
 });
 // ===========================================
@@ -361,70 +402,41 @@ likeBtn.forEach(el => {
     el.classList.toggle('check');
   })
 })
+if(document.querySelector('.area__slider')){
+  const swiper1 = new Swiper('.area__slider', {
+    // Optional parameters
+    autoplay: {
+      delay: 4000,
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 12
+      },
+      440: {
+        slidesPerView: 2,
+        spaceBetween: 12
+      },
+      760: {
+        slidesPerView: 3,
+        spaceBetween: 24
+      },
+      930: {
+        slidesPerView: 4,
+        spaceBetween: 40
+      },
+      1120: {
+        slidesPerView: 5,
+        spaceBetween: 40
+      }
+    },
+    // Navigation arrows
+    navigation: {
+      nextEl: '.area-button-next',
+      prevEl: '.area-button-prev',
+    },
+  });
+}
 
-const swiper1 = new Swiper('.area__slider', {
-  // Optional parameters
-  autoplay: {
-    delay: 4000,
-  },
-  breakpoints: {
-    320: {
-      slidesPerView: 1,
-      spaceBetween: 12
-    },
-    440: {
-      slidesPerView: 2,
-      spaceBetween: 12
-    },
-    760: {
-      slidesPerView: 3,
-      spaceBetween: 24
-    },
-    930: {
-      slidesPerView: 4,
-      spaceBetween: 40
-    },
-    1120: {
-      slidesPerView: 5,
-      spaceBetween: 40
-    }
-  },
-  // Navigation arrows
-  navigation: {
-    nextEl: '.area-button-next',
-    prevEl: '.area-button-prev',
-  },
-});
-
-const swiperCarThumbs = new Swiper('.car-slider-thumbs', {
-  slidesPerView: 6,
-  spaceBetween: 12,
-  breakpoints: {
-    320: {
-      slidesPerView: 4,
-      spaceBetween: 4
-    },
-    440: {
-      slidesPerView: 5,
-      spaceBetween: 8
-    },
-    760: {
-      slidesPerView: 6,
-      spaceBetween: 12
-    },
-  },
-});
-const swiperCar = new Swiper('.car-slider', {
-  slidesPerView: 1,
-  spaceBetween: 24,
-  navigation: {
-    nextEl: '.car-modal-button-next',
-    prevEl: '.car-modal-button-prev',
-  },
-  thumbs: {
-    swiper: swiperCarThumbs,
-  },
-
-});
 
 
