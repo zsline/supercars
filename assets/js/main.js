@@ -324,8 +324,6 @@ document.addEventListener('DOMContentLoaded', () => {
           const fileName = e.currentTarget.firstElementChild.src.split('/').pop();
           if(fileName == img){
             index = i;
-          } else {
-            index = 0;
           }
         }
         openSlider(modal, index);
